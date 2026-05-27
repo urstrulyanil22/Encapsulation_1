@@ -8,7 +8,9 @@ namespace Encapsulation_1
 {
     class Account
     {
-        public double balance;
+        private double balance;
+        private string pin = "Sandeep";
+
         public void Deposit(double  amount)
         {
             if (amount > 0)
@@ -19,7 +21,16 @@ namespace Encapsulation_1
         }
         public void Withdraw(double amount)
         {
-            if(amount <= balance )
+            Console.WriteLine("Enter a Pin Number:");
+            string EnterPin = Console.ReadLine();
+            if(EnterPin != pin)
+            {
+                Console.WriteLine("Invalid Pin:");
+                return;
+            }
+
+
+            else if(amount <= balance)
             {
                 balance -= amount;
                 Console.WriteLine("Deposite Withdraw Amount  2000:");
